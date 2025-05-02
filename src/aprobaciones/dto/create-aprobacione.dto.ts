@@ -7,6 +7,7 @@ export class CreateAprobacioneDto {
     
     @IsInt()
     horaExtraId: number;
+    
   
     @IsEnum(['PENDIENTE', 'APROBADO', 'RECHAZADO'])
     estado: string;
