@@ -18,13 +18,14 @@ import { JwtStrategy } from './login/JwtStrategy';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '123456789',
-      database: 'horasextra',
-      autoLoadEntities:true,
+      host: 'shinkansen.proxy.rlwy.net', // MYSQLHOST
+      port: 13952,                        // MYSQLPORT
+      username: 'root',                  // MYSQLUSER
+      password: 'JIPKxeMQUqIlHFcpJFxJjYIWNUiBgwWu',           // MYSQLPASSWORD
+      database: 'railway',               // MYSQLDATABASE
+      autoLoadEntities: true,
       synchronize: true,
+      ssl: false, // Railway usa red pública, puedes poner false por ahora
     }),
     TurnoModule,
     HorasExtrasModule,
