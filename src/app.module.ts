@@ -13,6 +13,7 @@ import { AsignacionTurnoModule } from './asignacion-turno/asignacion-turno.modul
 import { JwtAuthGuard } from './login/JwtAuthGuard';
 import { JwtStrategy } from './login/JwtStrategy';
 import { HelloWordModule } from './HelloWord/HelloWord.module';
+import { AppController } from './AppController';
 
 
 @Module({
@@ -40,7 +41,7 @@ import { HelloWordModule } from './HelloWord/HelloWord.module';
     AsignacionTurnoModule,
     HelloWordModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [JwtAuthGuard,JwtStrategy],
 })
 export class AppModule {}
