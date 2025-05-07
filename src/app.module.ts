@@ -20,10 +20,10 @@ import { AppController } from './AppController';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'shinkansen.proxy.rlwy.net', // MYSQLHOST
-      port: 13952,                        // MYSQLPORT
+      host: 'interchange.proxy.rlwy.net', // MYSQLHOST
+      port: 46182,                        // MYSQLPORT
       username: 'root',                  // MYSQLUSER
-      password: 'JIPKxeMQUqIlHFcpJFxJjYIWNUiBgwWu',           // MYSQLPASSWORD
+      password: 'AiVwDMQVYJFneEUKkzSivBLsUZfpHczI',           // MYSQLPASSWORD
       database: 'railway',               // MYSQLDATABASE
       autoLoadEntities: true,
       synchronize: true,
