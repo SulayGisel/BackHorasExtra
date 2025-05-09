@@ -14,13 +14,15 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { RecoverPasswordDto } from './dto/update-password.dto';
 import { updatePasswordAdminDto } from './dto/update-password-admin';
+import { Public } from 'src/login/login.controller';
 // import { SecurityQuestionRequestDto } from './dto/security-question-request.dto';
 // import { SecurityQuestionResponseDto } from './dto/security-question-response.dto';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-
+  
+  @Public()
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
