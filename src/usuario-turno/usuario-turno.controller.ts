@@ -31,4 +31,22 @@ export class UsuarioTurnoController {
   remove(@Param('id') id: string) {
     return this.usuarioTurnoService.remove(+id);
   }
+  
+  @Post('verificar-superposicion')
+async verificarSuperposicion(@Body() data: { usuarioFK: number, fechaInicio: Date, fechaFin: Date }) {
+  const { usuarioFK, fechaInicio, fechaFin } = data;
+  const existeSuperposicion = await this.usuarioTurnoService.verificarSuperposicion(
+    usuarioFK, 
+    new Date(fechaInicio), 
+    new Date(fechaFin)
+  );
+  
+  return { existeSuperposicion };
+}
+
+  @Post('delete-multiple')
+  async removeMultiple(@Body() body: { ids: number[] }) {
+    return this.usuarioTurnoService.removeMultiple(body.ids);
+  }
+
 }

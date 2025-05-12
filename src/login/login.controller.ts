@@ -1,4 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, SetMetadata, Session } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  UseGuards,
+  Request,
+  SetMetadata,
+  Session,
+} from '@nestjs/common';
 import { LoginService } from './login.service';
 import { CreateLoginDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
@@ -16,16 +28,18 @@ export class LoginController {
 
   @Public()
   @Post('login')
-  async login(@Body() createLoginDto: CreateLoginDto, @Session() session: Record<string, any>) {
-    console.log("entro al login");
-    session.userId = "idSession1";
-    return this.loginService.login(createLoginDto,session);
+  async login(
+    @Body() createLoginDto: CreateLoginDto,
+    @Session() session: Record<string, any>,
+  ) {
+    console.log('entro al login');
+    session.userId = 'idSession1';
+    return this.loginService.login(createLoginDto, session);
   }
-
+  @Public()
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Request() req: RequestWithUser) {
     return req.user;
   }
-
 }
